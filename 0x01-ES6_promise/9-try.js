@@ -6,8 +6,9 @@ export default function guardrail(Function) {
 		const result = Function();
 		queue.push(result);
 	} catch (error) {
-		queue.push(error);
+		queue.push(error.message);
+	} finally {
+		queue.push(message);
 	}
-	queue.push(message);
 	return queue;
 }
