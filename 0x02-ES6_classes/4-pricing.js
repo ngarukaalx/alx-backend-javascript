@@ -1,5 +1,5 @@
 // import class currency
-import Currency from './3-currency';
+import Currency from './3-currency'; // eslint-disable-line no-unused-vars
 
 // export class
 export default class pricing {
@@ -36,8 +36,8 @@ export default class pricing {
   // Return amount multipied by conversion
   static convertPrice(amount, conversionRate) {
     if (typeof amount === 'number' && typeof conversionRate === 'number') {
-      throw new Error('amount or conversionrate must be numbers');
+      return amount * conversionRate;
     }
-    return amount * conversionRate;
+    throw new Error('amount or conversionrate must be numbers');
   }
 }
