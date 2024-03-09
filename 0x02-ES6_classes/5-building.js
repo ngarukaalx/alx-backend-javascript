@@ -1,15 +1,13 @@
 // abstract class
 export default class Building {
   constructor(sqft) {
-    this._sqft = sqft;
-    this.checkEvacuationWarningMessage();
-  }
-
-  // class that extends form this class must iplement this method
-  checkEvacuationWarningMessage() {
-    if (typeof this.evacuationWarningMessage !== 'function') {
-      throw new Error('Class extending Building must override evacuationWarningMessage');
+    // class that extends form this class must iplement this method
+    if (this.constructor !== Building) {
+      if (!this.evacuationWarningMessage) {
+        throw new Error('Class extending Building must override evacuationWarningMessage');
+      }
     }
+    this._sqft = sqft;
   }
 
   // getter

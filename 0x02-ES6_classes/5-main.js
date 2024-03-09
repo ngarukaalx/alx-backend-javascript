@@ -1,6 +1,7 @@
 import Building from './5-building.js';
 
-const b = new Building(100);
+const b = new Building(23);
+console.log("logme");
 console.log(b);
 
 class TestBuilding extends Building {}
