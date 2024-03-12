@@ -6,7 +6,6 @@ export default function updateUniqueItems(map) {
   const newMap = new Map();
   map.forEach((value, key) => {
     const updatedValue = value === 1 ? 100 : value;
-    console.log(value, updatedValue);
     newMap.set(key, updatedValue);
   });
   return newMap;
