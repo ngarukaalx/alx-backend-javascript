@@ -1,7 +1,7 @@
-// Crea;;te a small HTTP server using Node's HTTP module
+// small HTTP server using Express
+const express = require('express');
 const fs = require('fs');
-const { createServer } = require('http');
-// function to read file and perform some required operations
+
 // Reading a file asynchronously
 function countStudents(path) {
   // return a promise
@@ -15,9 +15,9 @@ function countStudents(path) {
         let numberStudents = 0;
         let swe = 0;
         let cs = 0;
-        let isEmpty = true;
         const listCs = [];
         const listSw = [];
+        let isEmpty = true;
         const lines = data.split('\n');
         for (let i = 1; i < lines.length; i += 1) {
           // skip empty lines
@@ -51,28 +51,24 @@ function countStudents(path) {
     });
   });
 }
-
+const app = express();
 const port = 1245;
-const app = createServer((req, res) => {
-  if (req.url === '/') {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello Holberton School!');
-  }
-  if (req.url === '/students') {
-    res.setHeader('Content-Type', 'text/plain');
-    res.write('This is the list of our students\n');
-    // call countStudents func
-    countStudents(process.argv[2])
-      .then((result) => {
-        res.end(result);
-      }).catch((error) => {
-        res.end(error);
-      });
-  }
+
+app.get('/', (req, res) => {
+  res.send('Hello Holberton School!');
+});
+app.get('/students', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain');
+  res.write('This is the list of our students\n');
+  // call countStudents fuction
+  countStudents(process.argv[2])
+    .then((result) => {
+      res.end(result);
+    }).catch((error) => {
+      res.end(error);
+    });
 });
 app.listen(port, () => {
-  console.log(`Server running at http://0.0.0.0:${port}/`);
+  console.log('...');
 });
-// Export the app instance
 module.exports = app;
