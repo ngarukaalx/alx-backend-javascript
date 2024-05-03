@@ -35,10 +35,10 @@ module.exports = function countStudents(path) {
     }
     console.log(`Number of students: ${studentsNumber}`);
     if (sweStudents) {
-      console.log(`Number of students in SWE: ${sweStudents}. List: ${listSwe}`);
+      console.log(`Number of students in SWE: ${sweStudents}. List: ${listSwe.join(', ')}`);
     }
     if (csStudents) {
-      console.log(`Number of students in CS: ${csStudents}. List: ${listCs}`);
+      console.log(`Number of students in CS: ${csStudents}. List: ${listCs.join(', ')}`);
     }
   } catch (error) {
     throw new Error('Cannot load the database');
