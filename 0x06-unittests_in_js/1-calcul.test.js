@@ -1,6 +1,6 @@
 // test calculateNumber
 const assert = require('assert');
-const { calculateNumber } = require('./1-calcul.js');
+const calculateNumber = require('./1-calcul.js');
 
 describe('calculateNumber', () => {
   describe('sUM with no round', () => {
