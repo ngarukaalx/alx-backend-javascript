@@ -33,16 +33,16 @@ module.exports = function countStudents(path) {
             }
             if (values[3] === 'CS') {
               listCs.push(values[0]);
-              cs = +1;
+              cs += 1;
             }
           }
         }
         console.log(`Number of students: ${numberStudents}`);
         if (cs) {
-          console.log(`Number of students in CS: ${cs}. List: ${listCs}`);
+          console.log(`Number of students in CS: ${cs}. List: ${listCs.join(', ')}`);
         }
         if (swe) {
-          console.log(`Number of students in CS: ${swe}. List: ${listSw}`);
+          console.log(`Number of students in SWE: ${swe}. List: ${listSw.join(', ')}`);
         }
         resolve();
       }
