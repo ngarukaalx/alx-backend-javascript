@@ -67,7 +67,7 @@ const app = createServer((req, res) => {
       .then((result) => {
         res.end(result);
       }).catch((error) => {
-        res.end(error);
+        res.end(error.message);
       });
   }
 });
