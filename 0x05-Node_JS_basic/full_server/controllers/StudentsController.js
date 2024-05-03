@@ -15,7 +15,7 @@ export default class StudentsController {
         const formatedStrings = keys.map((key) => {
           const lenghtValue = result[key].length;
           const listValue = result[key];
-          return `Number of students in ${key}: ${lenghtValue}. List: ${listValue}`;
+          return `Number of students in ${key}: ${lenghtValue}. List: ${listValue.join(', ')}`;
         });
         const strings = formatedStrings.join('\n');
         intro += strings;
@@ -40,7 +40,7 @@ export default class StudentsController {
             keys.forEach((key) => {
               if (key === major.toUpperCase()) {
                 const listValue = result[key];
-                responses = `List: ${listValue}`;
+                responses = `List: ${listValue.join(', ')}`;
               }
             });
             response.status(200).send(responses);
