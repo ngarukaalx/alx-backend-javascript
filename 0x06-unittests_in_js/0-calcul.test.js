@@ -12,7 +12,7 @@ describe('calculateNumber', () => {
   it('returns expected', () => {
     assert.equal(calculateNumber(3.7, 1), 5);
   });
-  //it('returns expected 6', () => {
-    //assert.equal(calculateNumber(1.5, 3.7), 6);
-  //});
+  it('returns expected 6', () => {
+    assert.equal(calculateNumber(1.5, 3.7), 6);
+  });
 });
