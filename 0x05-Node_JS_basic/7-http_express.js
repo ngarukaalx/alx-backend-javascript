@@ -41,10 +41,10 @@ function countStudents(path) {
         }
         let result = `Number of students: ${numberStudents}\n`;
         if (cs) {
-          result += `Number of students in CS: ${cs}. List: ${listCs}\n`;
+          result += `Number of students in CS: ${cs}. List: ${listCs.join(', ')}\n`;
         }
         if (swe) {
-          result += `Number of students in CS: ${swe}. List: ${listSw}`;
+          result += `Number of students in SWE: ${swe}. List: ${listSw.join(', ')}`;
         }
         resolve(result);
       }
@@ -65,7 +65,7 @@ app.get('/students', (req, res) => {
     .then((result) => {
       res.end(result);
     }).catch((error) => {
-      res.end(error);
+      res.end(error.message);
     });
 });
 app.listen(port, () => {
