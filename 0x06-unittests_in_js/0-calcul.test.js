@@ -1,26 +1,25 @@
-// import the calculateNumber
-const assert = require('assert');
-const  calculateNumber = require('./0-calcul.js');
+const assert = require("assert");
+const calculateNumber = require("./0-calcul.js");
 
 describe('calculateNumber', () => {
-    describe('sum with both not rounded', () => {
-        it('returns expected 4', () => {
-            assert.equal(calculateNumber(10, 3), 13);
-	});
-    });
-    describe('sum with second rounded', () => {
-        it('returns expected 5', () => {
-            assert.equal(calculateNumber(1, 3.7), 5);
-	});
-    });
-    describe('sum with first rounded', () => {
-        it('returns expected', () => {
-            assert.equal(calculateNumber(3.7, 1), 5);
-	});
-    });
-    describe('sum with both rounded', () => {
-        it('returns expected 6', () => {
-            assert.equal(calculateNumber(1.5, 3.7), 6);
-	});
-    });
+  it('it round the first argument', () => {
+    assert.equal(calculateNumber(1.0, 0), 1);
+    assert.equal(calculateNumber(1.3, 0), 1);
+    assert.equal(calculateNumber(1.7, 0), 2);
+  });
+
+  it('it round the second argument', () => {
+    assert.equal(calculateNumber(0, 1.0), 1);
+    assert.equal(calculateNumber(0, 1.3), 1);
+    assert.equal(calculateNumber(0, 1.7), 2);
+  });
+
+  it('it should return the right number', () => {
+    assert.equal(calculateNumber(1.3, 0), 1);
+    assert.equal(calculateNumber(0, 1.2), 1);
+    assert.equal(calculateNumber(1.3, 1.3), 2);
+    assert.equal(calculateNumber(1.7, 1.2), 3);
+    assert.equal(calculateNumber(1.3, 1.8), 3);
+    assert.equal(calculateNumber(1.6, 1.8), 4);
+  });
 });
